@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{247B0846-C3A5-44DD-A636-9F178B898213}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Geckon.Octopus.Plugins.Transcoding.FFmpeg.Test</RootNamespace>
+    <AssemblyName>Geckon.Octopus.Plugins.Transcoding.FFmpeg.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Geckon, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Geckon.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.3.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\tools\NUnit\bin\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CutVideoFramePluginTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TranscodeTwoPassh264PluginTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Controller.Core\Geckon.Octopus.Controller.Core.csproj">
+      <Project>{B071D2AA-19A7-45AF-8962-651E5229920A}</Project>
+      <Name>Geckon.Octopus.Controller.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Controller.Interface\Geckon.Octopus.Controller.Interface.csproj">
+      <Project>{4BC995AE-8FAC-4981-978C-5410180B5D6E}</Project>
+      <Name>Geckon.Octopus.Controller.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Data\Geckon.Octopus.Data.csproj">
+      <Project>{9B61180A-E9DC-419D-8197-8DFA5EA4376F}</Project>
+      <Name>Geckon.Octopus.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Plugin.Core\Geckon.Octopus.Plugin.Core.csproj">
+      <Project>{6F92F17A-522C-4AAA-B0F7-F5E3E12BA47C}</Project>
+      <Name>Geckon.Octopus.Plugin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Plugin.Interface\Geckon.Octopus.Plugin.Interface.csproj">
+      <Project>{AA5ADA8A-42CA-49FE-920C-94284FA4A515}</Project>
+      <Name>Geckon.Octopus.Plugin.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\plugins\Geckon.Octopus.Plugins.BasePlugins\Geckon.Octopus.Plugins.BasePlugins.csproj">
+      <Project>{76E1F3F1-CF62-4FF9-A5DB-19F54012BA15}</Project>
+      <Name>Geckon.Octopus.Plugins.BasePlugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\plugins\Geckon.Octopus.Plugins.Transcoding.FFmpeg\Geckon.Octopus.Plugins.Transcoding.FFmpeg.csproj">
+      <Project>{AEEDEB7A-799D-4493-9AC8-D192742AA31D}</Project>
+      <Name>Geckon.Octopus.Plugins.Transcoding.FFmpeg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Geckon.Octopus.TestUtilities\Geckon.Octopus.TestUtilities.csproj">
+      <Project>{122D3021-8062-4815-A4A0-4DEA8EDBDB32}</Project>
+      <Name>Geckon.Octopus.TestUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

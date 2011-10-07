@@ -1,0 +1,74 @@
+﻿<Job ClientID="0">
+	<Step>
+		<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+			<ExecuteDuration>50</ExecuteDuration>
+			<CommitDuration>20</CommitDuration>
+			<RollbackDuration>30</RollbackDuration>
+		</Plugin>
+		<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+			<ExecuteDuration>50</ExecuteDuration>
+			<CommitDuration>20</CommitDuration>
+			<RollbackDuration>30</RollbackDuration>
+		</Plugin>
+		<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+			<ExecuteDuration>50</ExecuteDuration>
+			<CommitDuration>20</CommitDuration>
+			<RollbackDuration>30</RollbackDuration>
+		</Plugin>
+		<Flow>
+			<Step>
+				<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+					<ExecuteDuration>50</ExecuteDuration>
+					<CommitDuration>20</CommitDuration>
+					<RollbackDuration>30</RollbackDuration>
+				</Plugin>
+				<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+					<ExecuteDuration>50</ExecuteDuration>
+					<CommitDuration>20</CommitDuration>
+					<RollbackDuration>30</RollbackDuration>
+					<ShouldExecuteFail>True</ShouldExecuteFail>
+				</Plugin>
+			</Step>
+			<Step>
+				<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+					<ExecuteDuration>50</ExecuteDuration>
+					<CommitDuration>20</CommitDuration>
+					<RollbackDuration>30</RollbackDuration>
+				</Plugin>
+			</Step>
+			<Step>
+				<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+					<ExecuteDuration>50</ExecuteDuration>
+					<CommitDuration>20</CommitDuration>
+					<RollbackDuration>30</RollbackDuration>
+				</Plugin>
+				<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+					<ExecuteDuration>50</ExecuteDuration>
+					<CommitDuration>20</CommitDuration>
+					<RollbackDuration>30</RollbackDuration>
+				</Plugin>
+				<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+					<ExecuteDuration>50</ExecuteDuration>
+					<CommitDuration>20</CommitDuration>
+					<RollbackDuration>30</RollbackDuration>
+				</Plugin>
+			</Step>
+		</Flow>
+		<Flow>
+			<Step>
+				<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+					<ExecuteDuration>50</ExecuteDuration>
+					<CommitDuration>20</CommitDuration>
+					<RollbackDuration>30</RollbackDuration>
+				</Plugin>
+			</Step>
+		</Flow>
+	</Step>
+	<Step>
+		<Plugin Class="Geckon.Octopus.Plugins.TestPlugin.TestPlugin" Version="1.0.0.0">
+			<ExecuteDuration>50</ExecuteDuration>
+			<CommitDuration>20</CommitDuration>
+			<RollbackDuration>30</RollbackDuration>
+		</Plugin>
+	</Step>
+</Job>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Geckon.Octopus.Controller.Service.Web.OctopusService" CodeBehind="OctopusService.svc.cs" %>

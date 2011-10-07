@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Job ID="59272" Progress="1" Command="Finalize" ClientID="1">
+  <Step Progress="1">
+    <Geckon.Octopus.Plugins.FilePlugins.FileCopyPlugin Progress="1" Status="Committed" Version="1.0.0.0">
+      <SourceFilePath>C:\DR Demo\Wildlife.wmv</SourceFilePath>
+      <DestinationFilePath>C:\DR Demo\WildlifeCopy.wmv</DestinationFilePath>
+      <ShouldOwerwriteExistingFile>False</ShouldOwerwriteExistingFile>
+    </Geckon.Octopus.Plugins.FilePlugins.FileCopyPlugin>
+  </Step>
+  <Step Progress="1">
+    <Flow Progress="1">
+      <Step Progress="1">
+        <Geckon.Octopus.Plugins.Transcoding.FFmpeg.FFmpegCreateStillPlugin Progress="1" Status="Committed" Version="1.0.0.0">
+          <FFmpegFilePath>ffmpeg.exe</FFmpegFilePath>
+          <OutputCodec></OutputCodec>
+          <VideoPosition>00:00:15</VideoPosition>
+          <Width>0</Width>
+          <Height>0</Height>
+          <SourceFilePath>C:\DR Demo\Wildlife.wmv</SourceFilePath>
+          <DestinationFilePath>C:\DR Demo\WildlifeStil1.png</DestinationFilePath>
+          <ShouldOwerwriteExistingFile>False</ShouldOwerwriteExistingFile>
+        </Geckon.Octopus.Plugins.Transcoding.FFmpeg.FFmpegCreateStillPlugin>
+      </Step>
+      <Step Progress="1">
+        <Geckon.Octopus.Plugins.Transcoding.Image.ImageResizePlugin Progress="1" Status="Committed" Version="1.0.0.0">
+          <Amount>50</Amount>
+          <Type>Percent</Type>
+          <Quality>0</Quality>
+          <SourceFilePath>C:\DR Demo\WildlifeStil1.png</SourceFilePath>
+          <DestinationFilePath>C:\DR Demo\WildlifeStil2.png</DestinationFilePath>
+          <ShouldOwerwriteExistingFile>False</ShouldOwerwriteExistingFile>
+        </Geckon.Octopus.Plugins.Transcoding.Image.ImageResizePlugin>
+      </Step>
+    </Flow>
+    <Flow Progress="1">
+      <Step Progress="1">
+        <Geckon.Octopus.Plugins.Transcoding.FFmpeg.FFmpegCreateStillPlugin Progress="1" Status="Committed" Version="1.0.0.0">
+          <FFmpegFilePath>ffmpeg.exe</FFmpegFilePath>
+          <OutputCodec></OutputCodec>
+          <VideoPosition>00:00:05</VideoPosition>
+          <Width>320</Width>
+          <Height>240</Height>
+          <SourceFilePath>C:\DR Demo\WildlifeCopy.wmv</SourceFilePath>
+          <DestinationFilePath>C:\DR Demo\WildlifeCopyStil1.png</DestinationFilePath>
+          <ShouldOwerwriteExistingFile>False</ShouldOwerwriteExistingFile>
+        </Geckon.Octopus.Plugins.Transcoding.FFmpeg.FFmpegCreateStillPlugin>
+      </Step>
+      <Step Progress="1">
+        <Geckon.Octopus.Plugins.Transcoding.Image.ImageResizePlugin Progress="1" Status="Committed" Version="1.0.0.0">
+          <Amount>50</Amount>
+          <Type>Percent</Type>
+          <Quality>0</Quality>
+          <SourceFilePath>C:\DR Demo\WildlifeCopyStil1.png</SourceFilePath>
+          <DestinationFilePath>C:\DR Demo\WildlifeCopyStil2.png</DestinationFilePath>
+          <ShouldOwerwriteExistingFile>False</ShouldOwerwriteExistingFile>
+        </Geckon.Octopus.Plugins.Transcoding.Image.ImageResizePlugin>
+      </Step>
+    </Flow>
+  </Step>
+  <Step Progress="1">
+    <Geckon.Octopus.Plugins.FilePlugins.FileDeletePlugin Progress="1" Status="Committed" Version="1.0.0.0">
+      <FilePath>C:\DR Demo\WildlifeCopy.wmv</FilePath>
+      <TemporaryFilePath>C:\DR Demo\fed00bep.n32</TemporaryFilePath>
+    </Geckon.Octopus.Plugins.FilePlugins.FileDeletePlugin>
+  </Step>
+</Job>

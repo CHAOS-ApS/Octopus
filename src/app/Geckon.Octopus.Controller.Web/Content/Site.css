@@ -1,0 +1,72 @@
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+html, body
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-image: url(graphics/bg.png);
+    background-repeat: repeat-x;
+    background-color: #aaa;
+    font-family: Segoe UI, Verdana;
+    color: #fff;
+    font-size: 14px;
+}
+
+#header
+{
+    height: 50px;
+    padding: 5px 30px 0px 30px;
+    font-size: 260%;
+}
+
+#site
+{
+    margin: auto;
+    padding: 15px 30px 0px 30px;
+}
+
+.JobProgressBarCanvas
+{
+    width: 100%;
+    border: 1px solid #fff;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+    background-color: #888;
+    
+    text-align: center;
+}
+
+.JobProgressBar
+{
+    background-color: #666;
+    line-height: 30px;
+    
+    overflow:hidden;
+}

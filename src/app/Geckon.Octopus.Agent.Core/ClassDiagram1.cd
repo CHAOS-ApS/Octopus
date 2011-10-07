@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Geckon.Octopus.Agent.Core.AgentEngine" Collapsed="true">
+    <Position X="10.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgEAAQAAABAYCkAoAAQQAAAAQAAAABgAAAQAIIAw=</HashCode>
+      <FileName>AgentEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Geckon.Octopus.Agent.Core.Test.AllocationDefinition" Collapsed="true">
+    <Position X="12" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAABAACABAAAAAAAAEBAAFAAAAAAAQAAA=</HashCode>
+      <FileName>AllocationDefinition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Geckon.Octopus.Agent.Core.ExecutionManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAMgAEAAQAQAABQCCAIAACQgAAAwAAAEAgAAEQAIIgw=</HashCode>
+      <FileName>ExecutionManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Geckon.Octopus.Agent.Core.PluginManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAIACAEAAAEAAgAAAAAAAAAAAAAgAAAAAAAIAA=</HashCode>
+      <FileName>PluginManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.231" Collapsed="true" />
+  </Class>
+  <Class Name="Geckon.Octopus.Agent.Core.ExecutionSlot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABEgIAQgAGFQCAAIAAASAACAQAAAEAoAEAAAYKAg=</HashCode>
+      <FileName>ExecutionSlot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

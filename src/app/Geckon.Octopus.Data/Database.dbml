@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Octopus" Class="DatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Agent" Member="Agents">
+    <Type Name="Agent" Id="ID1">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Agent_ExecutionSlot" Member="ExecutionSlots" ThisKey="ID" OtherKey="AgentID" Type="ExecutionSlot" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Association Name="Status_Job" Member="Jobs" ThisKey="ID" OtherKey="StatusID" Type="Job" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Assembly]" Member="Assemblies">
+    <Type Name="Assembly">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DestinationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Filename" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Assembly_Plugin" Member="Plugins" ThisKey="ID" OtherKey="AssemblyID" Type="Plugin" />
+      <Association Name="Destination_Assembly" Member="Destination" ThisKey="DestinationID" OtherKey="ID" Type="Destination" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Destination" Member="Destinations">
+    <Type Name="Destination">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WriteURL" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="ReadURL" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Association Name="Destination_Assembly" Member="Assemblies" ThisKey="ID" OtherKey="DestinationID" Type="Assembly" />
+      <Association Name="Destination_WatchFolder" Member="WatchFolders" ThisKey="ID" OtherKey="DestinationID" Type="WatchFolder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExecutionSlot" Member="ExecutionSlots">
+    <Type Name="ExecutionSlot" Id="ID3">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AgentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaxSlots" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ExecutionSlot_ExecutionSlot_Plugin_Join" Member="ExecutionSlot_Plugin_Joins" ThisKey="ID" OtherKey="ExecutionSlotID" Type="ExecutionSlot_Plugin_Join" />
+      <Association Name="Agent_ExecutionSlot" Member="Agent" ThisKey="AgentID" OtherKey="ID" Type="Agent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExecutionSlot_Plugin_Join" Member="ExecutionSlot_Plugin_Joins">
+    <Type Name="ExecutionSlot_Plugin_Join">
+      <Column Name="ExecutionSlotID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PluginID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ExecutionSlot_ExecutionSlot_Plugin_Join" Member="ExecutionSlot" ThisKey="ExecutionSlotID" OtherKey="ID" Type="ExecutionSlot" IsForeignKey="true" />
+      <Association Name="Plugin_ExecutionSlot_Plugin_Join" Member="Plugin" ThisKey="PluginID" OtherKey="ID" Type="Plugin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Plugin" Member="Plugins">
+    <Type Name="Plugin">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssemblyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Classname" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Plugin_ExecutionSlot_Plugin_Join" Member="ExecutionSlot_Plugin_Joins" ThisKey="ID" OtherKey="PluginID" Type="ExecutionSlot_Plugin_Join" />
+      <Association Name="Assembly_Plugin" Member="Assembly" ThisKey="AssemblyID" OtherKey="ID" Type="Assembly" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssemblyInfo" Member="AssemblyInfos">
+    <Type Name="AssemblyInfo" Id="ID2">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Filename" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="WriteURL" Type="System.String" DbType="VarChar(2048) NOT NULL" CanBeNull="false" />
+      <Column Name="ReadURL" Type="System.String" DbType="VarChar(2048)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PluginInfo" Member="PluginInfos">
+    <Type Name="PluginInfo" Id="ID4">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Classname" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="[Assembly]" Member="Assembly" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Filename" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="WriteURL" Type="System.String" DbType="VarChar(2048) NOT NULL" CanBeNull="false" />
+      <Column Name="ReadURL" Type="System.String" DbType="VarChar(2048)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WatchFolder" Member="WatchFolders">
+    <Type Name="WatchFolder" Id="ID5">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DestinationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Filter" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WorkflowXML" Type="System.Xml.Linq.XElement" DbType="Xml NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Destination_WatchFolder" Member="Destination" ThisKey="DestinationID" OtherKey="ID" Type="Destination" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JobTemplate" Member="JobTemplates">
+    <Type Name="JobTemplate" Id="ID6">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="JobTemplateUri" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Job" Member="Jobs">
+    <Type Name="Job" Id="ID7">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="JobXML" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Status_Job" Member="Status" ThisKey="StatusID" OtherKey="ID" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Agent_GetBy" Method="Agent_GetBy">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateCreated" Parameter="dateCreated" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.AssemblyInfo_Get" Method="AssemblyInfo_Get">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.String" DbType="VarChar(64)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(512)" />
+    <Parameter Name="Filename" Parameter="filename" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="WriteURL" Parameter="writeURL" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="ReadURL" Parameter="readURL" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="CreatedDate" Parameter="createdDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="IsAnd" Parameter="isAnd" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.ExecutionSlot_GetBy" Method="ExecutionSlot_GetBy">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AgentID" Parameter="agentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaxSlots" Parameter="maxSlots" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateCreated" Parameter="dateCreated" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.PluginInfo_GetBy" Method="PluginInfo_GetBy">
+    <Parameter Name="PluginID" Parameter="pluginID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ExecutionSlotID" Parameter="executionSlotID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(64)" />
+    <Parameter Name="Version" Parameter="version" Type="System.String" DbType="VarChar(64)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Assemblyname" Parameter="assemblyname" Type="System.String" DbType="VarChar(512)" />
+    <Parameter Name="Classname" Parameter="classname" Type="System.String" DbType="VarChar(512)" />
+    <Parameter Name="WriteURL" Parameter="writeURL" Type="System.String" DbType="VarChar(2048)" />
+    <Parameter Name="ReadURL" Parameter="readURL" Type="System.String" DbType="VarChar(2048)" />
+    <Parameter Name="CreatedDate" Parameter="createdDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.Test_Clean" Method="Test_Clean">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Test_InsertDemoData" Method="Test_InsertDemoData">
+    <Parameter Name="APP_Path" Parameter="aPP_Path" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Test_CleanAndInsertDummyData" Method="Test_CleanAndInsertDummyData">
+    <Parameter Name="APP_Path" Parameter="aPP_Path" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Test_Insert" Method="Test_Insert">
+    <Parameter Name="APP_Path" Parameter="aPP_Path" Type="System.String" DbType="VarChar(1024)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.WatchFolder_Get" Method="WatchFolder_Get">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsEnabled" Parameter="isEnabled" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.JobTemplate_Create" Method="JobTemplate_Create">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="TemplateUri" Parameter="templateUri" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.JobTemplate_Get" Method="JobTemplate_Get">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.Job_Update" Method="Job_Update">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="JobXML" Parameter="jobXML" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="CreatedDate" Parameter="createdDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID7" />
+  </Function>
+  <Function Name="dbo.Job_GetUnfinishedJobs" Method="Job_GetUnfinishedJobs">
+    <ElementType IdRef="ID7" />
+  </Function>
+  <Function Name="dbo.Job_GetBy" Method="Job_GetBy">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="JobXML" Parameter="jobXML" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CreatedDate" Parameter="createdDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="IsAND" Parameter="isAND" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID7" />
+  </Function>
+  <Function Name="dbo.Job_Insert" Method="Job_Insert">
+    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="JobXML" Parameter="jobXML" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType IdRef="ID7" />
+  </Function>
+</Database>

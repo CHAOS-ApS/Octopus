@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3035A7B9-1FC5-4125-9992-C1F5037A4626}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Geckon.Octopus.Plugins.AWS.S3.Test</RootNamespace>
+    <AssemblyName>Geckon.Octopus.Plugins.AWS.S3.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Geckon">
+      <HintPath>..\..\..\..\lib\Geckon.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\tools\NUnit\bin\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S3CopyPluginTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Agent.Core\Geckon.Octopus.Agent.Core.csproj">
+      <Project>{ED1A5103-38CB-4BB6-A0B9-17B5830E530C}</Project>
+      <Name>Geckon.Octopus.Agent.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Plugin.Core\Geckon.Octopus.Plugin.Core.csproj">
+      <Project>{6F92F17A-522C-4AAA-B0F7-F5E3E12BA47C}</Project>
+      <Name>Geckon.Octopus.Plugin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Geckon.Octopus.Plugin.Interface\Geckon.Octopus.Plugin.Interface.csproj">
+      <Project>{AA5ADA8A-42CA-49FE-920C-94284FA4A515}</Project>
+      <Name>Geckon.Octopus.Plugin.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\plugins\Geckon.Octopus.Plugins.AWS.S3\Geckon.Octopus.Plugins.AWS.S3.csproj">
+      <Project>{F0794CFC-182F-4B95-995F-D0D4B2917BD6}</Project>
+      <Name>Geckon.Octopus.Plugins.AWS.S3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\plugins\Geckon.Octopus.Plugins.BasePlugins\Geckon.Octopus.Plugins.BasePlugins.csproj">
+      <Project>{76E1F3F1-CF62-4FF9-A5DB-19F54012BA15}</Project>
+      <Name>Geckon.Octopus.Plugins.BasePlugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
