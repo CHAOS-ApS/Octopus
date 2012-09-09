@@ -22,7 +22,7 @@ namespace Geckon.Octopus.Agent.Core
 		public event EventHandlers.ObjectErrorEventHandler<IPlugin>		CommitFailed		= delegate { };
 		public event EventHandlers.ObjectEventHandler<IPlugin>			RollbackCompleted	= delegate { };
 		public event EventHandlers.ObjectErrorEventHandler<IPlugin>		RollbackFailed		= delegate { };
-        private int p;
+
 
 		#endregion
         #region Properties
