@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EEA7083E-480F-4CE4-A0C9-B1A4697ED380}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{DF7731B0-75D6-4A72-B6AA-E2F62209662C}"
@@ -95,6 +95,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geckon.Octopus.Plugins.Conversion.Indexing", "src\app\plugins\Geckon.Octopus.Plugins.Conversion.Indexing\Geckon.Octopus.Plugins.Conversion.Indexing.csproj", "{55B1F9D3-49F6-4951-A2C4-2D27B5A4610E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geckon.Octopus.Plugins.Conversion.Indexing.Tes", "src\test\plugins\Geckon.Octopus.Plugins.Conversion.Indexing.Tes\Geckon.Octopus.Plugins.Conversion.Indexing.Tes.csproj", "{B13B1365-AB50-4C70-9DFA-6C44FBE1ABAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geckon.Octopus.Plugins.Transcoding.Zencoder.Test", "src\test\plugins\Geckon.Octopus.Plugins.Transcoding.Zencoder.Test\Geckon.Octopus.Plugins.Transcoding.Zencoder.Test.csproj", "{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHAOS.Octopus.Plugins.Transcoding.Zencoder", "src\app\plugins\CHAOS.Octopus.Plugins.Transcoding.Zencoder\CHAOS.Octopus.Plugins.Transcoding.Zencoder.csproj", "{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -601,6 +605,30 @@ Global
 		{B13B1365-AB50-4C70-9DFA-6C44FBE1ABAB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B13B1365-AB50-4C70-9DFA-6C44FBE1ABAB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B13B1365-AB50-4C70-9DFA-6C44FBE1ABAB}.Release|x86.ActiveCfg = Release|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Release|.NET.ActiveCfg = Release|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Release|.NET.ActiveCfg = Release|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -643,6 +671,7 @@ Global
 		{EAF9ACF4-F614-4C99-9367-0E7BE33E6814} = {74AC8138-03FD-4BD0-96D5-CEA7DA68717D}
 		{F0794CFC-182F-4B95-995F-D0D4B2917BD6} = {74AC8138-03FD-4BD0-96D5-CEA7DA68717D}
 		{55B1F9D3-49F6-4951-A2C4-2D27B5A4610E} = {74AC8138-03FD-4BD0-96D5-CEA7DA68717D}
+		{FD274FD0-9933-4C1C-9BF8-F8BFC3954799} = {74AC8138-03FD-4BD0-96D5-CEA7DA68717D}
 		{207803F8-3268-49C6-B40D-24B74D42F5E4} = {43C9CC60-AA71-493D-814A-19A515000B79}
 		{53CD8E3D-8850-4161-A934-BBD66074E325} = {43C9CC60-AA71-493D-814A-19A515000B79}
 		{4B545C65-2F2F-4B83-A3F0-3B9C2B12ECD3} = {43C9CC60-AA71-493D-814A-19A515000B79}
@@ -651,5 +680,6 @@ Global
 		{57DC8760-250F-4D03-BFFA-AC2BE8902997} = {43C9CC60-AA71-493D-814A-19A515000B79}
 		{3035A7B9-1FC5-4125-9992-C1F5037A4626} = {43C9CC60-AA71-493D-814A-19A515000B79}
 		{B13B1365-AB50-4C70-9DFA-6C44FBE1ABAB} = {43C9CC60-AA71-493D-814A-19A515000B79}
+		{D94DBF0E-0CEC-4E3A-BE1F-138F2A52D66A} = {43C9CC60-AA71-493D-814A-19A515000B79}
 	EndGlobalSection
 EndGlobal
