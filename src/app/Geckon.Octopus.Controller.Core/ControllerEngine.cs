@@ -95,7 +95,7 @@ namespace Geckon.Octopus.Controller.Core
 		}
 
 	    private void InitializeAgents()
-	    { 
+	    {
             using( var db = new DatabaseDataContext() )
             {
                 foreach( var agentData in db.Agent_GetBy(null,null) )

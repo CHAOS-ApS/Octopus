@@ -10,8 +10,11 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
     {
         #region Properties
 
-        [Element("ZencoderApiKey")]
-        public string ZencoderApiKey { get; set; }
+        [Element("AccessKey")]
+        public string AccessKey { get; set; }
+
+        [Element("BaseURL")]
+        public string BaseURL { get; set; }
 
         [Element("DestinationFilePath")]
         public string DestinationFilePath { get; set; }
@@ -43,7 +46,7 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
         {
             base.Execute();
             
-            var zencoder = new Zen.Zencoder(ZencoderApiKey, new Uri("https://app.zencoder.com/api/v2/"));
+            var zencoder = new Zen.Zencoder(AccessKey, new Uri(BaseURL));
             var outputs = new Zen.Output[]
                               {
                                   new Zen.Output

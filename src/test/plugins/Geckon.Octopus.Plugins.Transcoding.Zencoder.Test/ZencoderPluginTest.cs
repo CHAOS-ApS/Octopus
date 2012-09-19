@@ -15,12 +15,13 @@ namespace Geckon.Octopus.Plugins.Transcoding.Zencoder.Test
         {
             var plugin = new ZencoderPlugin
                              {
-                                 ZencoderApiKey = "aa86ad3b004917c8fe52b54fc38b09dd",
+                                 AccessKey = "aa86ad3b004917c8fe52b54fc38b09dd",
                                  Label = "somelabel",
                                  DestinationFilePath = "s3://chaosdata/outtest.mp4",
                                  Width = 480,
                                  Height = 320,
-                                 SourceFilePath = "s3://chaosdata/test.mp4"
+                                 SourceFilePath = "s3://chaosdata/test.mp4",
+                                 BaseURL = "https://app.zencoder.com/api/v2/"
                              };
 
             plugin.ExecuteFailed += delegate(object sender, ObjectErrorEventArgs<IPlugin> e) { throw e.Exception; };
