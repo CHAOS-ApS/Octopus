@@ -43,6 +43,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CutStillPlugin.cs" />
+    <Compile Include="ZencoderBasePlugin.cs" />
     <Compile Include="ZencoderPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

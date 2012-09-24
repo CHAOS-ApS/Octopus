@@ -21,7 +21,7 @@ namespace Geckon.Octopus.Plugins.Transcoding.Zencoder.Test
                                  Width = 480,
                                  Height = 320,
                                  SourceFilePath = "s3://chaosdata/test.mp4",
-                                 BaseURL = "https://app.zencoder.com/api/v2/"
+                                 BaseUrl = "https://app.zencoder.com/api/v2/"
                              };
 
             plugin.ExecuteFailed += delegate(object sender, ObjectErrorEventArgs<IPlugin> e) { throw e.Exception; };
