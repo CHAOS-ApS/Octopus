@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Geckon.Serialization.Xml;
 using Zen = Zencoder;
 
@@ -8,9 +7,6 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
     public class ZencoderPlugin : ZencoderBasePlugin
     {
         #region Properties
-
-        [Element("Label")]
-        public string Label { get; set; }
 
         [Element("VideoBitrate")]
         public int? VideoBitrate { get; set; }
@@ -26,7 +22,7 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
             base.Execute();
 
             var zencoder = GetNewZencoder();
-            var outputs  = new Zen.Output[]
+            var outputs  = new[]
                               {
                                   new Zen.Output
                                       {
@@ -48,6 +44,8 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
                 OperationProgress = zencoder.JobProgress(output.Id).Progress / 100.0;
             }
         }
+
+        // TODO: Implement Rollback
 
         #endregion
     }

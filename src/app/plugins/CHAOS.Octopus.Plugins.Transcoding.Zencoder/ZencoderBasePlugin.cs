@@ -12,6 +12,9 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
         [Element("AccessKey")]
         public string AccessKey { get; set; }
 
+        [Element("Label")]
+        public string Label { get; set; }
+
         [Element("BaseURL")]
         public string BaseUrl { get; set; }
 
