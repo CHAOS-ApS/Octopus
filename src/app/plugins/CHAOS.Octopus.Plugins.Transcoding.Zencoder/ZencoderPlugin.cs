@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text.RegularExpressions;
 using Geckon.Serialization.Xml;
 using Zen = Zencoder;
 
@@ -21,13 +22,16 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
         {
             base.Execute();
 
+            var sourceSettings      = GetS3Settings(SourceFilePath);
+            var destinationSettings = GetS3Settings(DestinationFilePath);
+
             var zencoder = GetNewZencoder();
             var outputs  = new[]
                               {
                                   new Zen.Output
                                       {
                                           Label        = Label,
-                                          Url          = DestinationFilePath,
+                                          Url          = ToZencoderUrl(destinationSettings),
                                           Width        = Width,
                                           Height       = Height,
                                           VideoBitrate = VideoBitrate,
@@ -36,7 +40,7 @@ namespace CHAOS.Octopus.Plugins.Transcoding.Zencoder
                                       }, 
                               };
 
-            var response = zencoder.CreateJob(SourceFilePath, outputs, null, "eu-dublin", false, false);
+            var response = zencoder.CreateJob(ToZencoderUrl(sourceSettings), outputs, null, "eu-dublin", false, false);
             var output   = response.Outputs.First();
 
             for (var outputState = zencoder.JobProgress(output.Id).State; outputState != Zen.OutputState.Finished && outputState != Zen.OutputState.Cancelled && outputState != Zen.OutputState.Failed; outputState = zencoder.JobProgress(output.Id).State)

@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ImageResizePluginTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S3\ImageResizePluginTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\app\Geckon.Octopus.Plugin.Core\Geckon.Octopus.Plugin.Core.csproj">

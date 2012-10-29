@@ -11,7 +11,7 @@ namespace Geckon.Octopus.Plugins.Transcoding.Image.Test.S3
         {
             //  
 
-            var regexMatch = Regex.Match("s3://s3-eu-west-1.amazonaws.com/chaosdata/hobit.mp4", @"^s3://(.+)\.amazonaws\.com/(.+)/(.+)$");
+            var regexMatch = Regex.Match("https://s3-eu-west-1.amazonaws.com/chaosdata/2012/10/29/af19cdcb-92cc-fc41-aa9b-5be349f6595b.png", @"^https://(.+)\.amazonaws\.com/(.+?)/(.+)$");
 
             var region     = regexMatch.Groups[1].Value;
             var bucketName = regexMatch.Groups[2].Value;
@@ -19,7 +19,7 @@ namespace Geckon.Octopus.Plugins.Transcoding.Image.Test.S3
 
             Assert.AreEqual("s3-eu-west-1", region);
             Assert.AreEqual("chaosdata", bucketName);
-            Assert.AreEqual("hobit.mp4", key);
+            Assert.AreEqual("2012/10/29/af19cdcb-92cc-fc41-aa9b-5be349f6595b.png", key);
         }
     }
 }

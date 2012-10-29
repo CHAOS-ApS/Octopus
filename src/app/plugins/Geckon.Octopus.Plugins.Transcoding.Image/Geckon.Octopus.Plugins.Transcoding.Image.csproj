@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK">
+      <HintPath>..\..\..\..\lib\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="Geckon, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\Geckon.dll</HintPath>
@@ -56,6 +59,7 @@
   <ItemGroup>
     <Compile Include="ImageResizePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S3\ImageResizePlugin.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Geckon.Octopus.Plugin.Core\Geckon.Octopus.Plugin.Core.csproj">

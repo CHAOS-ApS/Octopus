@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -66,18 +61,19 @@ namespace Geckon.Octopus.Plugins.AWS.S3
         {
             base.Execute();
 
-            using( AmazonS3   S3Client   = AWSClientFactory.CreateAmazonS3Client( AWSAccessKey, AWSSecretKey ) )
-            using( FileStream fileStream = GetStream() )
+            using( var S3Client   = AWSClientFactory.CreateAmazonS3Client( AWSAccessKey, AWSSecretKey ) )
+            using( var fileStream = GetStream() )
             {
-                PutObjectRequest request = new PutObjectRequest();
-
-                request.AutoCloseStream = false;
-                request.BucketName      = BucketName;
-                request.InputStream     = fileStream;
-                request.Key             = DestinationFilePath.Replace("\\","/").TrimStart( '/' );
-                request.ContentType     = ContentType; //video/mp4
-                request.CannedACL       = S3CannedACL.PublicRead;
-                request.Timeout         = 24 * 60 * 60 * 1000;
+                var request = new PutObjectRequest
+                                  {
+                                      AutoCloseStream = false,
+                                      BucketName      = BucketName,
+                                      InputStream     = fileStream,
+                                      Key             = DestinationFilePath.Replace("\\", "/").TrimStart('/'),
+                                      ContentType     = ContentType,
+                                      CannedACL       = S3CannedACL.PublicRead,
+                                      Timeout         = 24*60*60*1000
+                                  };
 
                 request.PutObjectProgressEvent += ProgressEvent;
 
